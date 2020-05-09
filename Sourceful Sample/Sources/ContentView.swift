@@ -24,7 +24,14 @@ struct ContentView: View {
                 Text("Show editor")
             }
             Divider()
-            Text(store.code ?? "No code... 🤷‍♂️")
+            Text("Code")
+                .font(.title)
+            ZStack {
+                Color(red: 0.90, green: 0.90, blue: 0.95)
+                    .blur(radius: 4)
+                Text(store.code ?? "No code... 🤷‍♂️")
+                    .font(.system(.body, design: .monospaced))
+            }
         }
     }
     
