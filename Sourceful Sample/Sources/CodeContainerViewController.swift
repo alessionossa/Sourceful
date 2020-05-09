@@ -12,7 +12,7 @@ import Sourceful
 class CodeContainerViewController: UIViewController {
     
     enum Languages: CaseIterable {
-        case swift, python3
+        case swift, python3, shell
     }
     
     var lexer: Lexer = SwiftLexer()
@@ -78,6 +78,8 @@ extension CodeContainerViewController: LanguageSelectorDelegate {
             self.lexer = SwiftLexer()
         case .python3:
             self.lexer = Python3Lexer()
+        case .shell:
+            self.lexer = ShellLexer()
         }
         
         self.syntaxView.forceTextUpdate()
@@ -138,6 +140,8 @@ class LanguagePickerView: UIViewController, UIPickerViewDataSource, UIPickerView
             return "Swift"
         case .python3:
             return "Python 3"
+        case .shell:
+            return "Shell"
         }
     }
     
